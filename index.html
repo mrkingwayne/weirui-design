@@ -2,99 +2,164 @@
 <title>緯睿x互應室內裝修設計｜室內設計・裝修施工・系統櫃・老屋翻新</title>
 <meta name="description" content="緯睿x互應室內裝修設計：室內設計、裝修施工、系統櫃、老屋翻新。3D 渲染與實際落地一致，私訊「估價」免費看平面。">
 <meta property="og:title" content="緯睿x互應室內裝修設計"><meta property="og:image" content="img/0.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23141210%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2216%22 text-anchor=%22middle%22 fill=%22%23e8833a%22%3EW%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <style>
-:root{--bg:#141210;--ink:#f3eee6;--mut:#a79f94;--or:#e8833a;--cream:#f5f0e8;--dk:#2a2622}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
-a{color:inherit;text-decoration:none}
-nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:rgba(20,18,16,.82);backdrop-filter:blur(8px)}
-.logo{font-weight:700;letter-spacing:.08em}.logo b{color:var(--or)}
-nav .links{display:none;gap:22px;font-size:14px;color:var(--mut)}nav .links a:hover{color:var(--or)}
-.cta{background:var(--or);color:#1a120b;padding:8px 16px;border-radius:999px;font-weight:700;font-size:14px}
-header{min-height:100svh;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(20,18,16,.25),rgba(20,18,16,.92)),url(img/0.jpg) center/cover}
-header .in{padding:0 22px 72px;max-width:1100px;margin:0 auto;width:100%}
-.kick{color:var(--or);letter-spacing:.3em;font-size:13px}
-h1{font-size:clamp(34px,8vw,68px);line-height:1.2;margin:10px 0 16px;font-weight:800}
-header p{color:#d9d1c6;max-width:560px}
-.btns{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}.ghost{border:1px solid #ffffff55;padding:8px 16px;border-radius:999px;font-size:14px}
-section{padding:80px 22px}.wrap{max-width:1100px;margin:0 auto}
-h2{font-size:clamp(26px,5vw,38px);margin-bottom:10px}h2 span{color:var(--or)}
-.sub{color:var(--mut);margin-bottom:34px}
+:root{--bg:#141210;--ink:#f3eee6;--mut:#a79f94;--or:#e8833a;--cream:#f5f0e8;--dk:#221f1b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit}
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--or);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+#loader{position:fixed;inset:0;background:var(--bg);z-index:100;display:grid;place-items:center;transition:opacity .6s,visibility .6s}
+#loader.done{opacity:0;visibility:hidden}#loader .t{letter-spacing:.4em;font-weight:800}#loader .t b{color:var(--or)}
+#loader .l{width:160px;height:2px;background:#ffffff20;margin-top:14px;overflow:hidden}#loader .l i{display:block;height:100%;width:0;background:var(--or);transition:width .3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;transition:background .3s}
+nav.s{background:rgba(20,18,16,.85);backdrop-filter:blur(8px)}
+.logo{font-weight:800;letter-spacing:.08em}.logo b{color:var(--or)}
+nav .links{display:none;gap:24px;font-size:14px;color:#d8d0c5}nav .links a{position:relative}
+nav .links a:after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:100%;background:var(--or);transform:scaleX(0);transition:transform .3s;transform-origin:right}
+nav .links a:hover:after{transform:scaleX(1);transform-origin:left}
+.cta{display:inline-block;background:var(--or);color:#1a120b;padding:9px 18px;border-radius:999px;font-weight:700;font-size:14px}
+.ghost{display:inline-block;border:1px solid #ffffff66;padding:9px 18px;border-radius:999px;font-size:14px}
+/* hero */
+header{position:relative;height:100svh;overflow:hidden}
+.slides{position:absolute;inset:-6%;}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s;transform:scale(1.08)}
+.slides img.on{opacity:1;animation:kb 7s linear forwards}
+@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1.18)}}
+header:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,16,.3),rgba(20,18,16,.25) 40%,rgba(20,18,16,.95))}
+header .in{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:0 22px 80px;max-width:1160px;margin:0 auto}
+.kick{color:var(--or);letter-spacing:.3em;font-size:12px}
+h1{font-size:clamp(34px,8vw,72px);line-height:1.2;margin:10px 0 16px;font-weight:800}
+h1 .w{display:inline-block;overflow:hidden;vertical-align:top}h1 .w span{display:inline-block}
+header p{color:#ddd5ca;max-width:560px}
+.btns{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.dots{position:absolute;z-index:3;right:22px;bottom:86px;display:flex;flex-direction:column;gap:8px}
+.dots i{width:3px;height:22px;background:#ffffff40;cursor:pointer;transition:.3s}.dots i.on{background:var(--or);height:40px}
+.scrollhint{position:absolute;z-index:3;left:50%;bottom:20px;font-size:11px;letter-spacing:.3em;color:#ccc;transform:translateX(-50%)}
+.scrollhint:after{content:"";display:block;width:1px;height:30px;margin:6px auto 0;background:var(--or);animation:sh 1.6s infinite}
+@keyframes sh{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+section{padding:90px 22px;position:relative}.wrap{max-width:1160px;margin:0 auto}
+h2{font-size:clamp(28px,5vw,42px);margin-bottom:8px;line-height:1.3}h2 span{color:var(--or)}
+.sub{color:var(--mut);margin-bottom:36px}
 .light{background:var(--cream);color:#2b2520}.light .sub{color:#7a6f63}
-.about{display:grid;gap:30px}.about img{width:100%;border-radius:14px;aspect-ratio:4/3;object-fit:cover}
-.pts{display:grid;gap:12px;margin-top:18px}.pts div{border-left:3px solid var(--or);padding-left:12px}
-.svc{display:grid;gap:16px}.card{background:var(--dk);border-radius:14px;padding:24px;border:1px solid #ffffff10}
+.about{display:grid;gap:34px}.about .ph{border-radius:16px;overflow:hidden;aspect-ratio:4/3}.about .ph img{width:100%;height:120%;object-fit:cover}
+.pts{display:grid;gap:14px;margin-top:20px}.pts div{border-left:3px solid var(--or);padding-left:12px}
+/* marquee */
+.strip{padding:34px 0;background:var(--bg);overflow:hidden;cursor:grab;user-select:none;-webkit-user-select:none}
+.strip.drag{cursor:grabbing}.track{display:flex;gap:14px;width:max-content;will-change:transform}
+.track img{height:220px;width:auto;border-radius:12px;pointer-events:none;filter:grayscale(.35);transition:filter .3s}
+.strip:hover .track img{filter:none}
+.strip .lab{padding:0 22px 14px;color:var(--mut);font-size:13px;letter-spacing:.2em}
+/* services */
+.svc{display:grid;gap:16px}.card{background:var(--dk);border-radius:16px;padding:26px;border:1px solid #ffffff10;position:relative;overflow:hidden;transition:border-color .3s}
+.card:before{content:"";position:absolute;inset:0;background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(232,131,58,.18),transparent 60%);opacity:0;transition:opacity .3s}
+.card:hover:before{opacity:1}.card:hover{border-color:#e8833a55}
 .card .no{color:var(--or);font-weight:800;font-size:13px;letter-spacing:.2em}.card h3{margin:6px 0 8px}.card p{color:var(--mut);font-size:15px}
-.filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:20px}
-.filters button{flex:none;border:1px solid #d6cbbd;background:transparent;color:#2b2520;padding:7px 16px;border-radius:999px;font-size:14px;cursor:pointer}
+/* works */
+.feat{display:grid;gap:18px;perspective:1200px}
+.fc{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;cursor:pointer;transform-style:preserve-3d;transition:transform .2s ease-out;background:#ddd}
+.fc img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.fc:hover img{transform:scale(1.08)}
+.fc .ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;color:#fff;background:linear-gradient(transparent 40%,rgba(10,8,6,.85));transform:translateZ(40px)}
+.fc .ov small{color:var(--or);letter-spacing:.2em;font-size:12px}.fc .ov h3{font-size:22px;line-height:1.35}
+.fc .ov .more{max-height:0;overflow:hidden;opacity:0;transition:.4s;font-size:14px;color:#e6ddd2}
+.fc:hover .ov .more{max-height:40px;opacity:1}
+.fc .cnt{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;padding:3px 10px;border-radius:999px;transform:translateZ(50px)}
+.filters{display:flex;gap:8px;overflow-x:auto;margin:56px 0 20px;padding-bottom:6px;position:relative}
+.filters button{flex:none;border:1px solid #d6cbbd;background:transparent;color:#2b2520;padding:7px 16px;border-radius:999px;font-size:14px;cursor:pointer;transition:.3s}
 .filters button.on{background:#2b2520;color:#fff;border-color:#2b2520}
-.grid{columns:2;column-gap:10px}.grid figure{break-inside:avoid;margin-bottom:10px;cursor:zoom-in;position:relative;overflow:hidden;border-radius:10px}
-.grid img{width:100%;display:block;transition:transform .4s}.grid figure:hover img{transform:scale(1.04)}
-.grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 8px;font-size:12px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.65))}
-.more{display:block;margin:24px auto 0;background:var(--or);border:0;color:#1a120b;font-weight:700;padding:10px 26px;border-radius:999px;cursor:pointer}
-.steps{display:grid;gap:14px;counter-reset:s}.step{display:flex;gap:16px;align-items:flex-start}
-.step i{flex:none;width:42px;height:42px;border-radius:50%;border:2px solid var(--or);color:var(--or);display:grid;place-items:center;font-style:normal;font-weight:800}
-.step p{color:var(--mut);font-size:15px}
-.contact{text-align:center;background:linear-gradient(rgba(20,18,16,.85),rgba(20,18,16,.92)),url(img/167.jpg) center/cover}
-.big{font-size:clamp(22px,5vw,34px);font-weight:800;margin:10px 0 26px}.big b{color:var(--or)}
-.soc{display:grid;gap:12px;max-width:420px;margin:0 auto}.soc a{display:flex;justify-content:space-between;background:#ffffff10;border:1px solid #ffffff22;padding:14px 20px;border-radius:12px}.soc a:hover{border-color:var(--or)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gc{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1;cursor:pointer;background:#ddd}
+.gc img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.gc:hover img{transform:scale(1.07)}
+.gc .ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;color:#fff;background:linear-gradient(transparent 45%,rgba(0,0,0,.75));font-size:13px}
+.gc .ov b{font-size:15px;line-height:1.35}
+.gc.hide{display:none}
+/* process */
+#process{overflow:hidden;padding-bottom:60px}
+.hs{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 22px 20px;margin:0 -22px}
+.hs::-webkit-scrollbar{display:none}
+.st{flex:none;width:78vw;max-width:360px;scroll-snap-align:start;background:var(--dk);border:1px solid #ffffff12;border-radius:18px;padding:28px;min-height:240px;position:relative}
+.st .n{font-size:64px;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1px var(--or)}
+.st h3{margin:16px 0 8px}.st p{color:var(--mut);font-size:15px}
+.pbar{height:2px;background:#ffffff18;margin-top:10px;border-radius:2px;overflow:hidden}.pbar i{display:block;height:100%;width:0;background:var(--or)}
+.contact{text-align:center;overflow:hidden}
+.contact .bg{position:absolute;inset:-10% 0;background:url(img/167.jpg) center/cover;z-index:0}
+.contact:after{content:"";position:absolute;inset:0;background:rgba(20,18,16,.86)}
+.contact .wrap{position:relative;z-index:2}
+.big{font-size:clamp(24px,5.5vw,40px);font-weight:800;margin:10px 0 28px;line-height:1.4}.big b{color:var(--or)}
+.soc{display:grid;gap:12px;max-width:440px;margin:0 auto}
+.soc a{display:flex;justify-content:space-between;background:#ffffff10;border:1px solid #ffffff22;padding:15px 20px;border-radius:12px;transition:.3s}
+.soc a:hover{border-color:var(--or);background:#e8833a1c}
 footer{padding:26px;text-align:center;color:var(--mut);font-size:13px}
-#lb{position:fixed;inset:0;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;z-index:50}
-#lb.on{display:flex}#lb img{max-width:94vw;max-height:84vh;border-radius:6px}
-#lb .x,#lb .p,#lb .n{position:absolute;color:#fff;font-size:34px;background:none;border:0;cursor:pointer;padding:14px}
-#lb .x{top:6px;right:10px}#lb .p{left:4px}#lb .n{right:4px}#lb .cap{position:absolute;bottom:18px;color:#ddd;font-size:14px;padding:0 20px;text-align:center}
-@media(min-width:760px){nav .links{display:flex}.about{grid-template-columns:1fr 1fr;align-items:center}.svc{grid-template-columns:repeat(2,1fr)}.grid{columns:3}.steps{grid-template-columns:repeat(3,1fr)}.step{flex-direction:column}}
-@media(min-width:1080px){.svc{grid-template-columns:repeat(4,1fr)}.grid{columns:4}}
+/* viewer */
+#cv{position:fixed;inset:0;z-index:80;background:#0c0b0a;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+#cv.on{opacity:1;visibility:visible}
+#cv .top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;gap:12px}
+#cv .top h3{font-size:18px;line-height:1.3}#cv .top small{color:var(--or);font-size:12px;letter-spacing:.15em}
+#cv .x{background:#ffffff14;border:0;color:#fff;width:42px;height:42px;border-radius:50%;font-size:22px;cursor:pointer;flex:none}
+#cv .main{flex:1;min-height:0;width:100%}
+#cv .main .swiper-slide{display:flex;align-items:center;justify-content:center}
+#cv .main img{max-width:100%;max-height:100%;object-fit:contain}
+#cv .swiper-button-next,#cv .swiper-button-prev{color:var(--or)}
+#cv .thumbs{height:78px;padding:10px 12px;box-sizing:content-box;width:calc(100% - 24px)}
+#cv .thumbs .swiper-slide{width:96px;opacity:.4;cursor:pointer;border-radius:6px;overflow:hidden;transition:opacity .3s}
+#cv .thumbs .swiper-slide-thumb-active{opacity:1;outline:2px solid var(--or)}
+#cv .thumbs img{width:100%;height:100%;object-fit:cover}
+#cv .info{padding:0 18px 12px;color:var(--mut);font-size:13px;display:flex;justify-content:space-between;gap:10px}
+#cv .info a{color:var(--or)}
+/* cursor */
+.cur,.cur2{position:fixed;top:0;left:0;pointer-events:none;z-index:200;border-radius:50%;display:none}
+.cur{width:8px;height:8px;background:var(--or);margin:-4px 0 0 -4px}
+.cur2{width:38px;height:38px;border:1px solid #e8833a99;margin:-19px 0 0 -19px;transition:width .3s,height .3s,margin .3s,background .3s;display:none;align-items:center;justify-content:center;font-size:11px;color:#fff;letter-spacing:.1em}
+.cur2.big{width:84px;height:84px;margin:-42px 0 0 -42px;background:rgba(232,131,58,.85);border-color:transparent}
+@media (pointer:fine){.cur,.cur2{display:flex}body.cur-on,body.cur-on a,body.cur-on button,body.cur-on .fc,body.cur-on .gc{cursor:none}}
+.rv{opacity:0;transform:translateY(40px)}
+@media(min-width:760px){nav .links{display:flex}.about{grid-template-columns:1fr 1fr;align-items:center}.svc{grid-template-columns:repeat(2,1fr)}
+.feat{grid-template-columns:repeat(2,1fr)}.feat .fc:first-child{grid-column:span 2;aspect-ratio:21/9}.grid{grid-template-columns:repeat(3,1fr)}.track img{height:300px}
+.st{width:380px}#cv .top h3{font-size:22px}}
+@media(min-width:1080px){.svc{grid-template-columns:repeat(4,1fr)}.feat{grid-template-columns:repeat(3,1fr)}.feat .fc:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}.grid{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.slides img.on{transform:none}}
 </style></head><body>
-<nav><a class="logo" href="#">緯睿<b>x</b>互應</a><div class="links"><a href="#about">關於我們</a><a href="#services">服務項目</a><a href="#works">作品集</a><a href="#process">服務流程</a></div><a class="cta" href="#contact">免費估價</a></nav>
-<header><div class="in"><div class="kick">WEIRUI × HUYING INTERIOR</div><h1>把預算花在刀口上，<br>把家做到住得舒服。</h1>
-<p>緯睿x互應室內裝修設計，從平面配置、3D 渲染到施工落地一手包辦。設計圖畫什麼，現場就做什麼。</p>
-<div class="btns"><a class="cta" href="#works">看作品集</a><a class="ghost" href="#contact">私訊「估價」</a></div></div></header>
-<section id="about" class="light"><div class="wrap about"><div><h2>關於<span>我們</span></h2>
+<div id="loader"><div><div class="t">緯睿<b>x</b>互應</div><div class="l"><i></i></div></div></div>
+<div id="bar"></div><div class="cur"></div><div class="cur2"></div>
+<nav id="nav"><a class="logo" href="#">緯睿<b>x</b>互應</a><div class="links"><a href="#about">關於我們</a><a href="#services">服務項目</a><a href="#works">作品集</a><a href="#process">服務流程</a></div><a class="cta mag" href="#contact">免費估價</a></nav>
+<header id="top"><div class="slides" id="slides"></div>
+<div class="in"><div class="kick">WEIRUI × HUYING INTERIOR</div>
+<h1 id="h1"><span class="w"><span>把預算花在刀口上，</span></span><br><span class="w"><span>把家做到住得舒服。</span></span></h1>
+<p class="hp">緯睿x互應室內裝修設計，從平面配置、3D 渲染到施工落地一手包辦。設計圖畫什麼，現場就做什麼。</p>
+<div class="btns hp"><a class="cta mag" href="#works">看作品集</a><a class="ghost mag" href="#contact">私訊「估價」</a></div></div>
+<div class="dots" id="dots"></div><div class="scrollhint">SCROLL</div></header>
+<section id="about" class="light"><div class="wrap about"><div class="rv"><h2>關於<span>我們</span></h2>
 <p class="sub">設計與施工同一個團隊，溝通不轉手。</p>
 <p>我們相信好的裝修不一定要花大錢。依照屋況、預算與生活習慣規劃格局與收納，用 3D 渲染讓您在開工前就看見完工的樣子，再由團隊照圖施工、落實細節。</p>
 <div class="pts"><div><b>3D 渲染 1:1 落地</b><br>開工前先看見完工樣貌，減少想像落差。</div><div><b>報價透明</b><br>項目、數量、材料逐項列清楚，不用「一式」帶過。</div><div><b>責任施工</b><br>設計與工程同一團隊，從拆除到交屋全程負責。</div></div></div>
-<img src="img/86.jpg" alt="完工客廳實景" loading="lazy"></div></section>
-<section id="services"><div class="wrap"><h2>服務<span>項目</span></h2><p class="sub">新成屋、中古屋、老屋翻新，都能從一張平面圖開始。</p>
+<div class="ph rv"><img id="aboutimg" src="img/86.jpg" alt="完工客廳實景" loading="lazy"></div></div></section>
+<div class="strip" id="strip"><div class="lab">← 拖曳瀏覽精選畫面 →</div><div class="track" id="track"></div></div>
+<section id="services"><div class="wrap"><h2 class="rv">服務<span>項目</span></h2><p class="sub rv">新成屋、中古屋、老屋翻新，都能從一張平面圖開始。</p>
 <div class="svc">
-<div class="card"><div class="no">01</div><h3>室內設計</h3><p>現場丈量、平面配置、風格規劃與 3D 渲染，先把動線與收納想清楚。</p></div>
-<div class="card"><div class="no">02</div><h3>裝修施工</h3><p>水電、泥作、木作、油漆、燈光到清潔，整合工班並控管工期與品質。</p></div>
-<div class="card"><div class="no">03</div><h3>系統櫃</h3><p>衣櫃、鞋櫃、電視櫃、書櫃與廚具，依空間尺寸量身訂製，兼顧收納與美感。</p></div>
-<div class="card"><div class="no">04</div><h3>老屋翻新</h3><p>管線更新、格局調整、防水與採光改善，讓老房子重新住得安心。</p></div>
+<div class="card rv"><div class="no">01</div><h3>室內設計</h3><p>現場丈量、平面配置、風格規劃與 3D 渲染，先把動線與收納想清楚。</p></div>
+<div class="card rv"><div class="no">02</div><h3>裝修施工</h3><p>水電、泥作、木作、油漆、燈光到清潔，整合工班並控管工期與品質。</p></div>
+<div class="card rv"><div class="no">03</div><h3>系統櫃</h3><p>衣櫃、鞋櫃、電視櫃、書櫃與廚具，依空間尺寸量身訂製，兼顧收納與美感。</p></div>
+<div class="card rv"><div class="no">04</div><h3>老屋翻新</h3><p>管線更新、格局調整、防水與採光改善，讓老房子重新住得安心。</p></div>
 </div></div></section>
-<section id="works" class="light"><div class="wrap"><h2>作品<span>集</span></h2><p class="sub">照片整理自我們的 IG 與臉書粉專，含完工實景與 3D 設計圖。點圖可放大。</p>
-<div class="filters" id="f"></div><div class="grid" id="g"></div><button class="more" id="more">載入更多</button></div></section>
-<section id="process"><div class="wrap"><h2>服務<span>流程</span></h2><p class="sub">每一步都確認過，再往下一步。</p>
-<div class="steps">
-<div class="step"><i>1</i><div><h3>線上諮詢</h3><p>私訊「估價」，提供平面圖、需求與預算，先初步評估。</p></div></div>
-<div class="step"><i>2</i><div><h3>現場丈量</h3><p>到府丈量並了解屋況、管線與生活習慣。</p></div></div>
-<div class="step"><i>3</i><div><h3>平面配置</h3><p>提出格局與收納配置，討論到滿意為止。</p></div></div>
-<div class="step"><i>4</i><div><h3>3D 渲染・報價</h3><p>3D 呈現完工樣貌，並提供逐項列明的報價單。</p></div></div>
-<div class="step"><i>5</i><div><h3>簽約施工</h3><p>依圖施工，定期回報進度，關鍵工程拍照記錄。</p></div></div>
-<div class="step"><i>6</i><div><h3>驗收交屋</h3><p>逐項驗收、清潔完成後交屋，後續問題持續服務。</p></div></div>
-</div></div></section>
-<section id="contact" class="contact"><div class="wrap"><div class="kick">CONTACT</div><div class="big">私訊「<b>估價</b>」兩個字<br>免費幫你看平面</div>
-<div class="soc"><a href="https://www.instagram.com/mrkingwayne/" target="_blank" rel="noopener"><span>Instagram</span><span>@mrkingwayne →</span></a>
-<a href="https://www.threads.com/@mrkingwayne" target="_blank" rel="noopener"><span>Threads</span><span>@mrkingwayne →</span></a>
-<a href="https://www.facebook.com/102196034967493" target="_blank" rel="noopener"><span>Facebook 粉專</span><span>緯睿x互應 →</span></a></div></div></section>
+<section id="works" class="light"><div class="wrap"><h2 class="rv">作品<span>集</span></h2><p class="sub rv">整理自 IG 與臉書粉專的案場，含完工實景與 3D 設計圖。點案場看完整照片。</p>
+<div class="feat" id="feat"></div>
+<div class="filters" id="f"></div><div class="grid" id="g"></div></div></section>
+<section id="process"><div class="wrap"><h2 class="rv">服務<span>流程</span></h2><p class="sub rv">每一步都確認過，再往下一步。<span id="phint">（左右滑動）</span></p>
+<div class="hs" id="hs"></div><div class="pbar"><i id="pb"></i></div></div></section>
+<section id="contact" class="contact"><div class="bg" id="cbg"></div><div class="wrap"><div class="kick">CONTACT</div><div class="big rv">私訊「<b>估價</b>」兩個字<br>免費幫你看平面</div>
+<div class="soc rv"><a class="mag" href="https://www.instagram.com/mrkingwayne/" target="_blank" rel="noopener"><span>Instagram</span><span>@mrkingwayne →</span></a>
+<a class="mag" href="https://www.threads.com/@mrkingwayne" target="_blank" rel="noopener"><span>Threads</span><span>@mrkingwayne →</span></a>
+<a class="mag" href="https://www.facebook.com/102196034967493" target="_blank" rel="noopener"><span>Facebook 粉專</span><span>緯睿x互應 →</span></a></div></div></section>
 <footer>© 緯睿x互應室內裝修設計</footer>
-<div id="lb"><button class="x" aria-label="關閉">×</button><button class="p" aria-label="上一張">‹</button><img alt=""><button class="n" aria-label="下一張">›</button><div class="cap"></div></div>
-<script>
-fetch('works.json').then(r=>r.json()).then(({items,lab})=>{
-const f=document.getElementById('f'),g=document.getElementById('g'),more=document.getElementById('more');
-const order=['all','living','kitchen','bedroom','storage','process','other'];lab.all='全部';
-let cur='all',shown=24,list=[];
-order.forEach(k=>{const b=document.createElement('button');b.textContent=lab[k];b.onclick=()=>{cur=k;shown=24;draw()};b.dataset.k=k;f.appendChild(b)});
-function draw(){list=cur=='all'?items:items.filter(i=>i.c==cur);
-[...f.children].forEach(b=>b.classList.toggle('on',b.dataset.k==cur));
-g.innerHTML=list.slice(0,shown).map((i,j)=>`<figure data-j="${j}"><img loading="lazy" src="img/${i.n}_t.jpg" alt="${lab[i.c]} ${i.case}"><figcaption>${lab[i.c]}${i.case?'｜'+i.case:''}</figcaption></figure>`).join('');
-more.style.display=shown<list.length?'block':'none'}
-more.onclick=()=>{shown+=24;draw()};
-const lb=document.getElementById('lb'),li=lb.querySelector('img'),cap=lb.querySelector('.cap');let k=0;
-function open(j){k=(j+list.length)%list.length;const i=list[k];li.src=`img/${i.n}.jpg`;cap.textContent=lab[i.c]+(i.case?'｜'+i.case:'');lb.classList.add('on')}
-g.onclick=e=>{const fg=e.target.closest('figure');if(fg)open(+fg.dataset.j)};
-lb.querySelector('.x').onclick=()=>lb.classList.remove('on');lb.querySelector('.p').onclick=()=>open(k-1);lb.querySelector('.n').onclick=()=>open(k+1);
-lb.onclick=e=>{if(e.target===lb)lb.classList.remove('on')};
-document.onkeydown=e=>{if(!lb.classList.contains('on'))return;if(e.key=='Escape')lb.classList.remove('on');if(e.key=='ArrowLeft')open(k-1);if(e.key=='ArrowRight')open(k+1)};
-draw()});
-</script></body></html>
+<div id="cv" role="dialog" aria-modal="true"><div class="top"><div><small id="cvs"></small><h3 id="cvt"></h3></div><button class="x" id="cvx" aria-label="關閉">×</button></div>
+<div class="swiper main"><div class="swiper-wrapper" id="cvm"></div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div>
+<div class="info"><span id="cvn"></span><span id="cvsrc"></span></div>
+<div class="swiper thumbs"><div class="swiper-wrapper" id="cvth"></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="app.js"></script>
+</body></html>
